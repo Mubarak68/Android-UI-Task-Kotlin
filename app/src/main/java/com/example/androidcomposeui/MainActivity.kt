@@ -3,6 +3,7 @@ package com.example.androidcomposeui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
@@ -101,10 +103,10 @@ fun TrueFalseGame(modifier: Modifier = Modifier) {
 
 
         if (showWrongResult) {
-            WrongAnswer(text = "Wrong Answer")
+            WrongAnswer("Wrong")
         }
         if (showCorrectResult) {
-            CorrectAnswer(text = "Correct Answer")
+            CorrectAnswer("Correct")
         }
 
         Text(text = "Score: $score", fontSize = 50.sp)
@@ -174,10 +176,9 @@ fun TrueFalseGame(modifier: Modifier = Modifier) {
 fun CorrectAnswer(text: String, modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier
-            .clip(CircleShape)
             .size(150.dp)
-            .background(Color.Green),
     ) {
+        Image(modifier = Modifier.fillMaxSize(),painter = painterResource(id = R.drawable.correct), contentDescription = "")
         Text(
             text = text,
             modifier = Modifier.align(Alignment.Center)
@@ -191,10 +192,9 @@ fun WrongAnswer(text: String, modifier: Modifier = Modifier) {
 
     Box(
         modifier = Modifier
-            .clip(CircleShape)
-            .size(150.dp)
-            .background(Color.Red),
+            .size(150.dp),
     ) {
+       Image(modifier = Modifier.fillMaxSize(), painter = painterResource(id = R.drawable.wrong), contentDescription = "")
         Text(
             text = text,
             modifier = Modifier.align(Alignment.Center)
