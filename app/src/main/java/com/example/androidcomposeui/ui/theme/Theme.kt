@@ -22,7 +22,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = Color.Red,
-    background = Color.Cyan
+    background = Color.Blue
 
     /* Other default colors to override
 background = Color(0xFFFFFBFE),
